@@ -14,30 +14,35 @@
                 <p> If you are magic, you will have received the confirmation telepathically</p>"
             }) }}
 
-            <h2 class="nhsuk-heading-m">Your order details</h2>
+            {% from 'do-dont-list/macro.njk' import list %}
 
-                {{ summaryList({
-                classes: 'nhsuk-summary-list--no-border',
-                rows: [
-                    {
-                        key: {
-                            text: "Site location"
-                        },
-                        value: {
-                            html: "St Georges Pharmacy<br>46 St George's Rd,<br>Elephant and Castle,<br>London<br>SE1 6ET<br>
-                            <a href='#'>Map and directions (opens in a new tab)</a>"
-                        }
-                    },
-                    {
-                        key: {
-                            text: "Date and time"
-                        },
-                        value: {
-                            text: "Thursday 15 June at 9:10am"
-                        }
-                    }
-                ]
-                }) }}
+{{ list({
+  title: "Do",
+  type: "tick",
+  items: [
+    {
+      item: "fight crime with your suspected powers"
+    },
+    {
+      item: "open any letters delivered via your chimney"
+    }
+  ]
+}) }}
+
+{{ list({
+  title: "But",
+  type: "cross",
+  items: [
+    {
+      item: "go mad with power"
+    },
+    {
+      item: "reveal your identity while fighting crime"
+    }
+  ]
+}) }}
+
+            
 
             <p><a href="#" class="nhsuk-link">Tell us about your experience using this service (opens in a new tab)</a></p>
 
