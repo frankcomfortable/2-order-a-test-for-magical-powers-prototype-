@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+{% from 'button/macro.njk' import button %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "#",
+        text: "Home"
+      },
+      {
+        href: "#",
+        text: "Section"
+      }
+    ],
+    href: "#",
+    text: "Subsection"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1> {{ serviceName }}</h1>
+      <p><p>But let's face it, if you need to order it rather than just make it apparate, you're probably a muggle.</p>
+      
+
+      {{ button({
+        text: "Start now",
+        href: "/magical-powers"
+      }) }}
+
+      <p>By using this service you are agreeing to our <a href="#">terms of use</a> and <a href="#">privacy policy</a>.</p>
+
+    </div>
+  </div>
+{% endblock %}

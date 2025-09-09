@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+
+{% from 'back-link/macro.njk' import backLink %}
+{% from 'button/macro.njk' import button %}
+{% from 'radios/macro.njk' import radios %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "/start-page",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/form-handler" method="post" novalidate>
+
+        {{ radios({
+          name: "whereDoYouLive",
+          fieldset: {
+            legend: {
+              text: "Are you currently under the influence of any hallucinogenic substances?",
+              isPageHeading: true,
+              classes: "nhsuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+              text: "For example anything offered to you at 2am by someone in a bucket hat under a bridge by Finsbury Park"
+          },
+          items: [
+            {
+              value: "england",
+              text: "Yeah baby"
+            },
+            {
+              value: "scotland",
+              text: "No"
+            },
+            {
+              value: "wales",
+              text: "I don't know man, I'm just a satsuma"
+            }
+            
+             
+            
+          ]
+        }) }}
+
+        {{ button({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
