@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+
+{% from 'button/macro.njk' import button %}
+{% from 'summary-list/macro.njk' import summaryList %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">Check your answers</h1>
+
+      <h2 class="nhsuk-heading-m">
+        Hallucinogens
+      </h2>
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Sobriety level"
+            },
+            value: {
+              text: data.sobrietyLevel
+            },
+            actions: {
+              items: [
+                {
+                  href: "/magical-powers",
+                  text: "Change",
+                  visuallyHiddenText: "Sobriety Level"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Details"
+            },
+            value: {
+              text: data.details
+            },
+            actions: {
+              items: [
+                {
+                  href: "/details",
+                  text: "Change",
+                  visuallyHiddenText: "any extra details you provided about your sobriety levels"
+                }
+              ]
+            }
+          }
+       
+        ]
+      }) }}
+
+     
+
+      <h2 class="nhsuk-heading-m">
+        Now place your order
+      </h2>
+
+      <p>
+        Your answers will be reviewed by the Ministry of Magic
+      </p>
+
+      <form action="/confirmation-page" method="post" novalidate>
+        {{ button({
+          text: "Place your order"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

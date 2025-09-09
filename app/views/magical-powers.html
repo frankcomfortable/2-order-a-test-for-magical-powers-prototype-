@@ -17,10 +17,10 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <form action="/form-handler" method="post" novalidate>
+      <form action="/magical-powers-answer" method="post" novalidate>
 
         {{ radios({
-          name: "whereDoYouLive",
+          name: "sobrietyLevel",
           fieldset: {
             legend: {
               text: "Are you currently under the influence of any hallucinogenic substances?",
@@ -31,17 +31,18 @@
           hint: {
               text: "For example anything offered to you at 2am by someone in a bucket hat under a bridge by Finsbury Park"
           },
+          value:data.sobrietyLevel,
           items: [
             {
-              value: "england",
+              value: "High as a kite",
               text: "Yeah baby"
             },
             {
-              value: "scotland",
+              value: "Sober",
               text: "No"
             },
             {
-              value: "wales",
+              value: "Absolutely baked",
               text: "I don't know man, I'm just a satsuma"
             }
             
